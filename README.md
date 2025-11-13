@@ -179,15 +179,6 @@ python validation_testing/2testing_launcher.py
 
 ---
 
-## 🌦 Weather Stress Test
-```bash
-python validation_testing/4test_weather.py
-```
-
-Press **W** to switch weather presets.
-
----
-
 ## 📄 Citation
 ```
 @misc{rusiana2025mcilae,
