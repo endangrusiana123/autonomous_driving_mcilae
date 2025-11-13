@@ -79,7 +79,7 @@ pip install -r requirements.txt
 
 ### 1. Launch CARLA 0.9.15
 ```bash
-./CarlaUE4.sh -quality-level=Low
+./CarlaUE4.sh
 ```
 
 ---
@@ -89,18 +89,66 @@ pip install -r requirements.txt
 python logging_dataset/5dataset_logging_launcher.py
 ```
 
-Outputs:
-- RGB camera  
-- Depth camera  
-- Speed  
-- Steering / throttle / brake  
-- High-level command (LEFT, RIGHT, STRAIGHT, LANEFOLLOW)  
-- Weather metadata  
-- Traffic metadata  
+## 📝 Output Dataset Logging
+
+Each dataset file (`cil_batch_XXXXX.h5`) contains **200 frames** with the following structure:
+
+### **1. RGB Images (3 views)**
+- Dataset: `rgb`
+- Shape: **(200, 3, 88, 200, 3)**
+- Views: left, center, right (cropped from 330×120 → 88×200)
+
+### **2. Depth Images (3 views)**
+- Dataset: `depth`
+- Shape: **(200, 3, 88, 200)**
+- 8-bit depth after decoding + clipping + median filter
+
+### **3. LiDAR BEV (2-layer)**
+- Datasets: `lidar_above`, `lidar_ground`
+- Shape: **(200, 88, 198)**
+- Generated from ray-cast LiDAR → BEV histogram
+
+### **4. Metadata (per-column datasets)**  
+Each metadata field is written as **its own dataset**:
+
+| Dataset | Description |
+|--------|-------------|
+| `frame_id` | Global frame index |
+| `speed` | Speed (km/h) |
+| `road_option` | LEFT / RIGHT / STRAIGHT / LANEFOLLOW |
+| `steer` | Controller steer value |
+| `steer_noise` | Injected Gaussian noise |
+| `steer_resultant` | Final applied steer |
+| `throttle` | Throttle value |
+| `brake` | Brake value |
+| `red_light` | Red light flag |
+| `at_traffic_light` | Traffic-light proximity flag |
+| `weather` | Current weather (string) |
+| `vehicle_in_front` | 1 if vehicle ahead |
+| `is_curve` | 1 if on curve |
+| `is_junction` | 1 if entering junction |
+| `speed_kmh_t` | Speed(t) |
+| `speed_kmh_t_1` | Speed(t-1) |
+| `speed_kmh_t_2` | Speed(t-2) |
+| `speed_kmh_t_3` | Speed(t-3) |
+
+### **5. Local Waypoints (relative hero frame)**
+Waypoints are stored as:
+
+```
+wp0_x, wp0_y,
+wp1_x, wp1_y,
+wp2_x, wp2_y,
+wp3_x, wp3_y,
+wp4_x, wp4_y
+```
 
 ---
 
-## 🎓 Training MCIL/MCILA/MCILE/MCILAE
+Total metadata columns: **27 datasets**  
+Total sensors per frame: **RGB, Depth, LiDAR BEV, Metadata, Waypoints**  
+
+## 🎓 Training MCILA/MCILAE
 ```bash
 python training/0_train_launcher.py
 ```
@@ -154,9 +202,14 @@ This project is released under the **MIT License**, fully compatible with the CA
 ---
 
 ## 🤝 Acknowledgements
-- CARLA Simulator Team  
-- Codevilla et al. (CIL)  
-- Xiao et al. (MCIL)  
-- Woo et al. (CBAM)  
-- TensorFlow Research Community  
-- Telkom University — Electrical Engineering Graduate Program  
+This project was developed as part of a Master's research at Telkom University.  
+The author thanks the developers and researchers whose public work made this implementation possible, including:
+
+- CARLA Simulator (open-source)  
+- TensorFlow and Keras  
+- Prior research on Conditional Imitation Learning (Codevilla et al.)  
+- Multimodal CIL (Xiao et al.)  
+- CBAM Attention (Woo et al.)  
+
+All referenced work is cited and used only as academic foundations.  
+
