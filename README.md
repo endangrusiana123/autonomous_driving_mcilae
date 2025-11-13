@@ -23,4 +23,18 @@ and visualization inside CARLA 0.9.15.
 ---
 
 ## 📁 Repository Structure
-
+autonomous_driving_mcilae/
+├── logging_dataset/
+│ ├── 5dataset_logging_launcher.py
+│ └── 6dataset_logging.py
+├── training/
+│ ├── 0_train_launcher.py
+│ └── 8_mul_cil_a2.py
+├── validation_testing/
+│ ├── 0validation_launcher.py
+│ ├── 1validation_model.py
+│ ├── 2testing_launcher.py
+│ ├── 3testing_model.py
+│ └── 4test_weather.py
+├── requirements.txt
+└── README.md
