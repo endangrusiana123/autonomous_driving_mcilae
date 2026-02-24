@@ -192,13 +192,14 @@ https://openlibrary.telkomuniversity.ac.id/home/catalog/id/245798/
 
 ## 📄 Citation
 ```
-@misc{rusiana2025mcilae,
-  author       = {Endang Rusiana},
-  title        = {MCILAE: Multimodal Conditional Imitation Learning with Attention and Error Compensation for Autonomous Driving},
-  howpublished = {\url{https://github.com/endangrusiana123/autonomous_driving_mcilae}},
-  institution  = {Telkom University},
-  note         = {Thesis available at \url{https://openlibrary.telkomuniversity.ac.id/home/catalog/id/245798/}},
-  year         = {2026}
+@book{rusiana2026development,
+  author       = {Rusiana, Endang},
+  title        = {Development of a Throttle-Aware Multimodal Conditional Imitation Learning Model with Feedback-Based Error Compensation for End-to-End Autonomous Driving in the CARLA Simulator},
+  year         = {2026},
+  address      = {Bandung},
+  publisher    = {Universitas Telkom, S2 Teknik Elektro},
+  type         = {Master's thesis},
+  note         = {Karya Ilmiah - Thesis (S2), Reference. Kode Katalog: 26.05.083}
 }
 ```
 
