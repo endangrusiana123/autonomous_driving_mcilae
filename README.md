@@ -179,6 +179,17 @@ python validation_testing/2testing_launcher.py
 
 ---
 
+## 🎥 Project Demonstration
+[![Watch the video](https://img.youtube.com/vi/zJhk1q0ixiY/0.jpg)](https://www.youtube.com/watch?v=zJhk1q0ixiY)
+
+---
+
+## 📄 Master’s Thesis
+Official thesis repository:
+https://openlibrary.telkomuniversity.ac.id/home/catalog/id/245798/
+
+---
+
 ## 📄 Citation
 ```
 @misc{rusiana2025mcilae,
