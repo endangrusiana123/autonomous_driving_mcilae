@@ -183,9 +183,11 @@ python validation_testing/2testing_launcher.py
 ```
 @misc{rusiana2025mcilae,
   author       = {Endang Rusiana},
-  title        = {MCILAE: Multimodal CIL with Attention and Error Compensation for Autonomous Driving},
+  title        = {MCILAE: Multimodal Conditional Imitation Learning with Attention and Error Compensation for Autonomous Driving},
   howpublished = {\url{https://github.com/endangrusiana123/autonomous_driving_mcilae}},
-  year         = {2025}
+  institution  = {Telkom University},
+  note         = {Thesis available at \url{https://openlibrary.telkomuniversity.ac.id/home/catalog/id/245798/}},
+  year         = {2026}
 }
 ```
 
