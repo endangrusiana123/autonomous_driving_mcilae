@@ -39,7 +39,7 @@ autonomous_driving_mcilae/
 
 ---
 
-## 🔧 System Requirements
+## 🔧 System Environments
 | Component | Version |
 |----------|---------|
 | CARLA | **0.9.15 (UE4.26)** |
